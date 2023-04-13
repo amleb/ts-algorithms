@@ -3,6 +3,7 @@ function selectionSort<T>(arr: T[]): T[] {
 
   for (let i = 0; i < length - 1; i++) {
     let minIdx = i;
+
     for (let j = i + 1; j < length; j++) {
       if (arr[j] < arr[minIdx]) {
         minIdx = j;
