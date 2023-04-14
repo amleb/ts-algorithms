@@ -1,6 +1,6 @@
 function doubleSelectionSort<T>(arr: T[]): T[] {
   const length = arr.length;
-  const middle = length / 2;
+  const middle = Math.ceil(length / 2);
   const end = length - 1;
 
   for (let i = 0; i <= middle; i++) {
