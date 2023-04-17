@@ -19,29 +19,34 @@ const sortingTestCases = [
     testType: 'reversed array',
   },
   {
-    unsorted: [5, 3, 6, 1, 2, 4],
-    sorted: [1, 2, 3, 4, 5, 6],
-    testType: 'unsorted array with even number of elements',
+    unsorted: [
+      11, -5, 3, -6, 1, 2, 4, 10, -2, -4, 5, -7, -8, 7, 9, -10, -9, 6, 8, -3,
+      -1, 0,
+    ],
+    sorted: [
+      -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+      11,
+    ],
+    testType: 'an array with negative values',
   },
   {
-    unsorted: [5, 3, 6, 1, 2, 7, 4],
-    sorted: [1, 2, 3, 4, 5, 6, 7],
-    testType: 'unsorted array with odd number of elements',
+    unsorted: [
+      -5, 3, -6, 1, 2, 4, 10, -2, -4, 5, -7, -8, 7, 9, -10, -9, 6, 8, -3, -1, 0,
+    ],
+    sorted: [
+      -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    ],
+    testType: 'an array with negative values',
   },
   {
-    unsorted: [1, 1, 1, 2, 2, 4, 4],
-    sorted: [1, 1, 1, 2, 2, 4, 4],
+    unsorted: [1, 1, 1, 2, 2, 4, 4, 1, 2, 4],
+    sorted: [1, 1, 1, 1, 2, 2, 2, 4, 4, 4],
     testType: 'an array with duplicates',
   },
   {
     unsorted: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     sorted: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     testType: 'an array with identical elements',
-  },
-  {
-    unsorted: [-5, 3, -6, 1, 2, 4],
-    sorted: [-6, -5, 1, 2, 3, 4],
-    testType: 'an array with negative values',
   },
 ];
 

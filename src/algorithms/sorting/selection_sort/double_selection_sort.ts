@@ -1,10 +1,10 @@
 function doubleSelectionSort<T>(arr: T[]): T[] {
   const length = arr.length;
-  const middle = Math.ceil(length / 2);
-  const end = length - 1;
+  const middle = length / 2;
 
-  for (let i = 0; i <= middle; i++) {
+  for (let i = 0; i < middle; i++) {
     let minIdx = i;
+    const end = length - (i + 1);
     let maxIdx = end;
 
     for (let j = i; j <= end; j++) {
@@ -18,7 +18,7 @@ function doubleSelectionSort<T>(arr: T[]): T[] {
     }
 
     if (i !== minIdx) {
-      if (arr[i] == arr[maxIdx]) {
+      if (arr[i] === arr[maxIdx]) {
         maxIdx = minIdx;
       }
 
