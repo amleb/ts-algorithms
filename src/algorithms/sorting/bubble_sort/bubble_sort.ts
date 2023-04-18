@@ -1,15 +1,15 @@
-function bubbleSort<T>(arr: T[]): T[] {
-  const length = arr.length;
+function bubbleSort<T>(list: T[]): T[] {
+  const listLength = list.length;
 
-  for (let i = 0; i < length; i++) {
-    for (let j = 0; j < length - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        [arr[j + 1], arr[j]] = [arr[j], arr[j + 1]];
+  for (let i = 0; i < listLength; i++) {
+    for (let j = 0; j < listLength - i - 1; j++) {
+      if (list[j] > list[j + 1]) {
+        [list[j + 1], list[j]] = [list[j], list[j + 1]];
       }
     }
   }
 
-  return arr;
+  return list;
 }
 
 export default bubbleSort;

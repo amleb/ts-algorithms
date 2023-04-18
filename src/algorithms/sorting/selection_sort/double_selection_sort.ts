@@ -1,36 +1,36 @@
-function doubleSelectionSort<T>(arr: T[]): T[] {
-  const length = arr.length;
-  const middle = length / 2;
+function doubleSelectionSort<T>(list: T[]): T[] {
+  const listLength = list.length;
+  const middlePosition = listLength / 2;
 
-  for (let i = 0; i < middle; i++) {
+  for (let i = 0; i < middlePosition; i++) {
     let minIdx = i;
-    const end = length - (i + 1);
+    const end = listLength - (i + 1);
     let maxIdx = end;
 
     for (let j = i; j <= end; j++) {
-      if (arr[j] < arr[minIdx]) {
+      if (list[j] < list[minIdx]) {
         minIdx = j;
       }
 
-      if (arr[j] > arr[maxIdx]) {
+      if (list[j] > list[maxIdx]) {
         maxIdx = j;
       }
     }
 
     if (i !== minIdx) {
-      if (arr[i] === arr[maxIdx]) {
+      if (list[i] === list[maxIdx]) {
         maxIdx = minIdx;
       }
 
-      [arr[minIdx], arr[i]] = [arr[i], arr[minIdx]];
+      [list[minIdx], list[i]] = [list[i], list[minIdx]];
     }
 
     if (end !== maxIdx) {
-      [arr[end], arr[maxIdx]] = [arr[maxIdx], arr[end]];
+      [list[end], list[maxIdx]] = [list[maxIdx], list[end]];
     }
   }
 
-  return arr;
+  return list;
 }
 
 export default doubleSelectionSort;

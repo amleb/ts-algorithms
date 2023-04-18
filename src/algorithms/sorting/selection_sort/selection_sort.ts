@@ -1,21 +1,21 @@
-function selectionSort<T>(arr: T[]): T[] {
-  const length = arr.length;
+function selectionSort<T>(list: T[]): T[] {
+  const listLength = list.length;
 
-  for (let i = 0; i < length - 1; i++) {
+  for (let i = 0; i < listLength - 1; i++) {
     let minIdx = i;
 
-    for (let j = i + 1; j < length; j++) {
-      if (arr[j] < arr[minIdx]) {
+    for (let j = i + 1; j < listLength; j++) {
+      if (list[j] < list[minIdx]) {
         minIdx = j;
       }
     }
 
     if (i !== minIdx) {
-      [arr[minIdx], arr[i]] = [arr[i], arr[minIdx]];
+      [list[minIdx], list[i]] = [list[i], list[minIdx]];
     }
   }
 
-  return arr;
+  return list;
 }
 
 export default selectionSort;

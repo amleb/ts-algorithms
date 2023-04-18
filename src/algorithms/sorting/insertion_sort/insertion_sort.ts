@@ -1,15 +1,15 @@
-function insertionSort<T>(arr: T[]): T[] {
-  const length = arr.length;
+function insertionSort<T>(list: T[]): T[] {
+  const listLength = list.length;
 
-  for (let i = 1; i < length; i++) {
+  for (let i = 1; i < listLength; i++) {
     let j = i;
-    while (j > 0 && arr[j] < arr[j - 1]) {
-      [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
+    while (j > 0 && list[j] < list[j - 1]) {
+      [list[j], list[j - 1]] = [list[j - 1], list[j]];
       --j;
     }
   }
 
-  return arr;
+  return list;
 }
 
 export default insertionSort;

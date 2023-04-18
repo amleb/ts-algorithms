@@ -1,25 +1,25 @@
-function recursiveInsertionSort<T>(arr: T[], length?: number): T[] {
-  if (typeof length === 'undefined') {
-    length = arr.length;
+function recursiveInsertionSort<T>(list: T[], listLength?: number): T[] {
+  if (typeof listLength === 'undefined') {
+    listLength = list.length;
   }
 
-  if (length <= 1) {
-    return arr;
+  if (listLength <= 1) {
+    return list;
   }
 
-  recursiveInsertionSort(arr, length - 1);
+  recursiveInsertionSort(list, listLength - 1);
 
-  const lastValue = arr[length - 1];
-  let j = length - 2;
+  const lastValue = list[listLength - 1];
+  let i = listLength - 2;
 
-  while (j >= 0 && arr[j] > lastValue) {
-    arr[j + 1] = arr[j];
-    --j;
+  while (i >= 0 && list[i] > lastValue) {
+    list[i + 1] = list[i];
+    --i;
   }
 
-  arr[j + 1] = lastValue;
+  list[i + 1] = lastValue;
 
-  return arr;
+  return list;
 }
 
 export default recursiveInsertionSort;
