@@ -4,6 +4,7 @@ import bubbleSort from './bubble_sort/bubble_sort';
 import optimizedBubbleSort from './bubble_sort/optimized_bubble_sort';
 import sortingTestCases from './test_cases';
 import insertionSort from './insertion_sort/insertion_sort';
+import recursiveInsertionSort from './insertion_sort/recursive_insertion_sort';
 
 describe.each(
   [
@@ -12,6 +13,7 @@ describe.each(
     bubbleSort,
     optimizedBubbleSort,
     insertionSort,
+    recursiveInsertionSort,
   ].map((fn) => {
     return { fn, name: fn.name };
   }),
