@@ -1,4 +1,3 @@
-// type SortingTestCase = [number[], number[]];
 const sortingTestCases = [
   { unsorted: [], sorted: [], testType: 'empty array' },
   { unsorted: [3], sorted: [3], testType: 'an array with one element' },
@@ -27,7 +26,7 @@ const sortingTestCases = [
       -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
       11,
     ],
-    testType: 'an array with negative values',
+    testType: 'an array with even number of items',
   },
   {
     unsorted: [
@@ -36,7 +35,7 @@ const sortingTestCases = [
     sorted: [
       -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
     ],
-    testType: 'an array with negative values',
+    testType: 'an array with odd number of items',
   },
   {
     unsorted: [1, 1, 1, 2, 2, 4, 4, 1, 2, 4],

@@ -1,5 +1,6 @@
 import bubbleSort from './bubble_sort/bubble_sort';
 import optimizedBubbleSort from './bubble_sort/optimized_bubble_sort';
+import recursiveBubbleSort from './bubble_sort/recursive_bubble_sort';
 import insertionSort from './insertion_sort/insertion_sort';
 import recursiveInsertionSort from './insertion_sort/recursive_insertion_sort';
 import doubleSelectionSort from './selection_sort/double_selection_sort';
@@ -11,6 +12,7 @@ describe.each(
     selectionSort,
     doubleSelectionSort,
     bubbleSort,
+    recursiveBubbleSort,
     optimizedBubbleSort,
     insertionSort,
     recursiveInsertionSort,
