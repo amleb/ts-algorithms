@@ -6,6 +6,7 @@ import recursiveInsertionSort from './insertion_sort/recursive_insertion_sort';
 import doubleSelectionSort from './selection_sort/double_selection_sort';
 import selectionSort from './selection_sort/selection_sort';
 import sortingTestCases from './test_cases';
+import shellSort from './shell_sort/shell_sort';
 
 describe.each(
   [
@@ -16,6 +17,7 @@ describe.each(
     optimizedBubbleSort,
     insertionSort,
     recursiveInsertionSort,
+    shellSort,
   ].map((fn) => {
     return { fn, name: fn.name };
   }),
