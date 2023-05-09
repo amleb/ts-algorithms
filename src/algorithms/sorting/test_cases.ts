@@ -47,12 +47,6 @@ const sortingTestCases = [
     sorted: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     testType: 'an array with identical elements',
   },
-];
-
-//tests should not mutate test cases
-sortingTestCases.forEach(({ sorted, unsorted }) => {
-  Object.freeze(sorted);
-  Object.freeze(unsorted);
-});
+] as const;
 
 export default sortingTestCases;
