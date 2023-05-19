@@ -1,4 +1,6 @@
-function doubleSelectionSort<T>(list: T[]): T[] {
+import { defaultCompareFn } from '../../../lib/helpers/sorting';
+
+function doubleSelectionSort<T>(list: T[], compareFn = defaultCompareFn): T[] {
   const listLength = list.length;
   const middlePosition = listLength / 2;
 
@@ -8,11 +10,11 @@ function doubleSelectionSort<T>(list: T[]): T[] {
     let maxIdx = end;
 
     for (let j = i; j <= end; j++) {
-      if (list[j] < list[minIdx]) {
+      if (compareFn(list[j], list[minIdx]) === -1) {
         minIdx = j;
       }
 
-      if (list[j] > list[maxIdx]) {
+      if (compareFn(list[j], list[maxIdx]) === 1) {
         maxIdx = j;
       }
     }

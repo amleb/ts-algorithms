@@ -1,4 +1,12 @@
-function merge<T>(list: T[], left: number, right: number, mid: number): T[] {
+import { defaultCompareFn } from '../../../lib/helpers/sorting';
+
+function merge<T>(
+  list: T[],
+  left: number,
+  right: number,
+  mid: number,
+  compareFn = defaultCompareFn,
+): T[] {
   const tmpLeft = [];
   const tmpRight = [];
   const endTmp1 = mid - left + 1;
@@ -17,7 +25,7 @@ function merge<T>(list: T[], left: number, right: number, mid: number): T[] {
   let mergedArrayIndex = left;
 
   while (i < endTmp1 && j < endTmp2) {
-    if (tmpLeft[i] <= tmpRight[j]) {
+    if (compareFn(tmpLeft[i], tmpRight[j]) <= 0) {
       list[mergedArrayIndex++] = tmpLeft[i++];
     } else {
       list[mergedArrayIndex++] = tmpRight[j++];
@@ -35,21 +43,26 @@ function merge<T>(list: T[], left: number, right: number, mid: number): T[] {
   return list;
 }
 
-function sort<T>(list: T[], left: number, right: number): T[] {
+function sort<T>(
+  list: T[],
+  left: number,
+  right: number,
+  compareFn = defaultCompareFn,
+): T[] {
   if (left >= right) {
     return list;
   }
 
   const mid = left + Math.floor((right - left) / 2);
 
-  sort(list, left, mid);
-  sort(list, mid + 1, right);
-  merge(list, left, right, mid);
+  sort(list, left, mid, compareFn);
+  sort(list, mid + 1, right, compareFn);
+  merge(list, left, right, mid, compareFn);
   return list;
 }
 
-function mergeSort<T>(list: T[]): T[] {
-  return sort(list, 0, list.length - 1);
+function mergeSort<T>(list: T[], compareFn = defaultCompareFn): T[] {
+  return sort(list, 0, list.length - 1, compareFn);
 }
 
 export default mergeSort;

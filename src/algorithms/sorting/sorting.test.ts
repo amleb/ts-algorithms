@@ -9,22 +9,44 @@ import selectionSort from './selection_sort/selection_sort';
 import shellSort from './shell_sort/shell_sort';
 import sortingTestCases from './test_cases';
 
+const sortingAlgorithms = [
+  selectionSort,
+  doubleSelectionSort,
+  bubbleSort,
+  recursiveBubbleSort,
+  optimizedBubbleSort,
+  insertionSort,
+  recursiveInsertionSort,
+  shellSort,
+  mergeSort,
+] as const;
+
 describe.each(
-  [
-    selectionSort,
-    doubleSelectionSort,
-    bubbleSort,
-    recursiveBubbleSort,
-    optimizedBubbleSort,
-    insertionSort,
-    recursiveInsertionSort,
-    shellSort,
-    mergeSort,
-  ].map((fn) => {
+  sortingAlgorithms.map((fn) => {
     return { fn, name: fn.name };
   }),
 )('$name', ({ fn }) => {
   test.each(sortingTestCases)(`$testType`, (testCase) => {
     expect(fn([...testCase.unsorted])).toEqual(testCase.sorted);
+  });
+});
+
+function compareReversedFn<T>(a, b) {
+  if (a === b) {
+    return 0;
+  }
+
+  return a < b ? 1 : -1;
+}
+
+describe.each(
+  sortingAlgorithms.map((fn) => {
+    return { fn, name: fn.name };
+  }),
+)('$name with custom sort function', ({ fn }) => {
+  test.each(sortingTestCases)(`$testType`, (testCase) => {
+    expect(fn([...testCase.unsorted], compareReversedFn)).toEqual(
+      [...testCase.sorted].reverse(),
+    );
   });
 });

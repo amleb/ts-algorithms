@@ -1,11 +1,13 @@
-function selectionSort<T>(list: T[]): T[] {
+import { defaultCompareFn } from '../../../lib/helpers/sorting';
+
+function selectionSort<T>(list: T[], compareFn = defaultCompareFn): T[] {
   const listLength = list.length;
 
   for (let i = 0; i < listLength - 1; i++) {
     let minIdx = i;
 
     for (let j = i + 1; j < listLength; j++) {
-      if (list[j] < list[minIdx]) {
+      if (compareFn(list[j], list[minIdx]) === -1) {
         minIdx = j;
       }
     }
