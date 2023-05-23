@@ -31,7 +31,7 @@ describe.each(
   });
 });
 
-function compareReversedFn<T>(a, b) {
+function compareReversedFn<T>(a: T, b: T) {
   if (a === b) {
     return 0;
   }

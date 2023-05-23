@@ -1,6 +1,6 @@
 import { defaultCompareFn } from '../../../lib/helpers/sorting';
 
-function insertionSort<T>(list: T[], compareFn = defaultCompareFn): T[] {
+function insertionSort<T>(list: T[], compareFn = defaultCompareFn<T>): T[] {
   const listLength = list.length;
 
   for (let i = 1; i < listLength; i++) {

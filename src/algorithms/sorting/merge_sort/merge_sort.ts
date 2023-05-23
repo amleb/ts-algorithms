@@ -5,7 +5,7 @@ function merge<T>(
   left: number,
   right: number,
   mid: number,
-  compareFn = defaultCompareFn,
+  compareFn = defaultCompareFn<T>,
 ): T[] {
   const tmpLeft = [];
   const tmpRight = [];
@@ -47,7 +47,7 @@ function sort<T>(
   list: T[],
   left: number,
   right: number,
-  compareFn = defaultCompareFn,
+  compareFn = defaultCompareFn<T>,
 ): T[] {
   if (left >= right) {
     return list;
@@ -61,7 +61,7 @@ function sort<T>(
   return list;
 }
 
-function mergeSort<T>(list: T[], compareFn = defaultCompareFn): T[] {
+function mergeSort<T>(list: T[], compareFn = defaultCompareFn<T>): T[] {
   return sort(list, 0, list.length - 1, compareFn);
 }
 

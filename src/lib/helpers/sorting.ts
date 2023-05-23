@@ -1,4 +1,4 @@
-export function defaultCompareFn<T>(a, b) {
+export function defaultCompareFn<T>(a: T, b: T) {
   if (a === b) {
     return 0;
   }

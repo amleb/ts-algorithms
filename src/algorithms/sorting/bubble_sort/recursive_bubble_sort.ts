@@ -1,6 +1,6 @@
 import { defaultCompareFn } from '../../../lib/helpers/sorting';
 
-function sort<T>(list: T[], fromIndex = 0, compareFn = defaultCompareFn): T[] {
+function sort<T>(list: T[], fromIndex = 0, compareFn = defaultCompareFn<T>): T[] {
   const listLength = list.length;
   let swapped = false;
 
@@ -22,7 +22,7 @@ function sort<T>(list: T[], fromIndex = 0, compareFn = defaultCompareFn): T[] {
   return list;
 }
 
-function recursiveBubbleSort<T>(list: T[], compareFn = defaultCompareFn) {
+function recursiveBubbleSort<T>(list: T[], compareFn = defaultCompareFn<T>) {
   return sort(list, 0, compareFn);
 }
 

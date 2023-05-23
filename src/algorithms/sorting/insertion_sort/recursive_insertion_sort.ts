@@ -3,7 +3,7 @@ import { defaultCompareFn } from '../../../lib/helpers/sorting';
 function sort<T>(
   list: T[],
   listLength: number,
-  compareFn = defaultCompareFn,
+  compareFn = defaultCompareFn<T>,
 ): T[] {
   if (listLength <= 1) {
     return list;
@@ -26,7 +26,7 @@ function sort<T>(
 
 function recursiveInsertionSort<T>(
   list: T[],
-  compareFn = defaultCompareFn,
+  compareFn = defaultCompareFn<T>,
 ): T[] {
   return sort(list, list.length, compareFn);
 }

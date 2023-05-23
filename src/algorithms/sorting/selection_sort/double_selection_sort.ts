@@ -1,6 +1,6 @@
 import { defaultCompareFn } from '../../../lib/helpers/sorting';
 
-function doubleSelectionSort<T>(list: T[], compareFn = defaultCompareFn): T[] {
+function doubleSelectionSort<T>(list: T[], compareFn = defaultCompareFn<T>): T[] {
   const listLength = list.length;
   const middlePosition = listLength / 2;
 

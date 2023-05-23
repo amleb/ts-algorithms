@@ -1,6 +1,6 @@
 import { defaultCompareFn } from '../../../lib/helpers/sorting';
 
-function shellSort<T>(list: T[], compareFn = defaultCompareFn): T[] {
+function shellSort<T>(list: T[], compareFn = defaultCompareFn<T>): T[] {
   const listLength = list.length;
   let h = 1;
   while (h < listLength / 3) h = Math.floor(3 * h + 1);

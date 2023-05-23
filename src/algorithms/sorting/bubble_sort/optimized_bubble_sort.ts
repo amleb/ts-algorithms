@@ -1,6 +1,6 @@
 import { defaultCompareFn } from '../../../lib/helpers/sorting';
 
-function optimizedBubbleSort<T>(list: T[], compareFn = defaultCompareFn): T[] {
+function optimizedBubbleSort<T>(list: T[], compareFn = defaultCompareFn<T>): T[] {
   const listLength = list.length;
 
   for (let i = 0; i < listLength; i++) {
