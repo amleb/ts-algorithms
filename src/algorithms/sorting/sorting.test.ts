@@ -4,6 +4,7 @@ import recursiveBubbleSort from './bubble_sort/recursive_bubble_sort';
 import insertionSort from './insertion_sort/insertion_sort';
 import recursiveInsertionSort from './insertion_sort/recursive_insertion_sort';
 import mergeSort from './merge_sort/merge_sort';
+import quickSort from './quick_sort/quick_sort';
 import doubleSelectionSort from './selection_sort/double_selection_sort';
 import selectionSort from './selection_sort/selection_sort';
 import shellSort from './shell_sort/shell_sort';
@@ -19,6 +20,7 @@ const sortingAlgorithms = [
   recursiveInsertionSort,
   shellSort,
   mergeSort,
+  quickSort,
 ] as const;
 
 describe.each(
