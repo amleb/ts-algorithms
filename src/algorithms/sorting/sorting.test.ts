@@ -1,3 +1,4 @@
+import { compareReversedFn } from '../../lib/helpers/sorting';
 import bubbleSort from './bubble_sort/bubble_sort';
 import optimizedBubbleSort from './bubble_sort/optimized_bubble_sort';
 import recursiveBubbleSort from './bubble_sort/recursive_bubble_sort';
@@ -32,14 +33,6 @@ describe.each(
     expect(fn([...testCase.unsorted])).toEqual(testCase.sorted);
   });
 });
-
-function compareReversedFn<T>(a: T, b: T) {
-  if (a === b) {
-    return 0;
-  }
-
-  return a < b ? 1 : -1;
-}
 
 describe.each(
   sortingAlgorithms.map((fn) => {
