@@ -1,6 +1,6 @@
 import { compareReversedFn, defaultCompareFn } from '../../lib/helpers/sorting';
 
-abstract class BinaryHeap<T> {
+export abstract class BinaryHeap<T> {
   private readonly list: T[];
   private readonly compareFn: (a: T, b: T) => 0 | 1 | -1;
 
@@ -53,8 +53,10 @@ abstract class BinaryHeap<T> {
       next = left;
     }
 
-    if (right < length && this.compareFn(list[right], list[next]) === -1) {
-      next = right;
+    if (right < length && this.compareFn(list[right], list[i]) === -1) {
+      if (!next || this.compareFn(list[left], list[right]) === 1) {
+        next = right;
+      }
     }
 
     if (next && next !== i) {
@@ -64,8 +66,7 @@ abstract class BinaryHeap<T> {
   }
 
   insert(value: T) {
-    this.list.push(value);
-    this.shiftUp(this.list.length - 1);
+    this.shiftUp(this.list.push(value) - 1);
   }
 
   setValue(i: number, value: T) {
@@ -75,7 +76,7 @@ abstract class BinaryHeap<T> {
 
   extractRoot() {
     const list = this.list;
-    if (list.length == 1) {
+    if (list.length === 1) {
       return list.pop();
     }
 

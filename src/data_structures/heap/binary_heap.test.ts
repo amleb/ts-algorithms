@@ -1,3 +1,5 @@
+import heapSort from '../../algorithms/sorting/heap_sort/heap_sort';
+import sortingTestCases from '../../algorithms/sorting/test_cases';
 import { MaxBinaryHeap, MinBinaryHeap } from './binary_heap';
 
 describe('binary heap', () => {
@@ -33,12 +35,26 @@ describe('binary heap', () => {
     expect(maxHeap.getMax()).toEqual(4);
 
     maxHeap.setValue(3, 5);
+
     expect(maxHeap.getMax()).toEqual(5);
 
     maxHeap.extractMax();
+
     expect(maxHeap.getMax()).toEqual(4);
 
     maxHeap.extractMax();
     expect(maxHeap.getMax()).toEqual(3);
+  });
+
+  test.each(sortingTestCases)(`$testType`, (testCase) => {
+    expect(heapSort([...testCase.unsorted], new MinBinaryHeap())).toEqual(
+      testCase.sorted,
+    );
+  });
+
+  test.each(sortingTestCases)(`$testType`, (testCase) => {
+    expect(heapSort([...testCase.unsorted], new MaxBinaryHeap())).toEqual(
+      [...testCase.sorted].reverse(),
+    );
   });
 });
