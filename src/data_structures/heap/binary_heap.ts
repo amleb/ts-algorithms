@@ -1,7 +1,7 @@
 import { compareReversedFn, defaultCompareFn } from '../../lib/helpers/sorting';
 
 export abstract class BinaryHeap<T> {
-  private readonly list: T[];
+  private list: T[];
   private readonly compareFn: (a: T, b: T) => 0 | 1 | -1;
 
   protected constructor(compareFn: (a: T, b: T) => 0 | 1 | -1) {
@@ -10,6 +10,14 @@ export abstract class BinaryHeap<T> {
   }
 
   abstract delete(i: number): void;
+
+  heapify(arr: T[]): void {
+    this.list = arr;
+    const length = Math.floor(this.list.length / 2);
+    for (let i = length - 1; i >= 0; i--) {
+      this.shiftDown(i);
+    }
+  }
 
   left(i: number): number {
     return 2 * i + 1;

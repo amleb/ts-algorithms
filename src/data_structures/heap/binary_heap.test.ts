@@ -1,8 +1,25 @@
-import heapSort from '../../algorithms/sorting/heap_sort/heap_sort';
-import sortingTestCases from '../../algorithms/sorting/test_cases';
 import { MaxBinaryHeap, MinBinaryHeap } from './binary_heap';
 
 describe('binary heap', () => {
+  test('min binary heapify', () => {
+    const minHeap = new MinBinaryHeap();
+    minHeap.heapify([5, 3, 4, 2]);
+
+    expect(minHeap.getMin()).toEqual(2);
+
+    minHeap.setValue(3, 1);
+    expect(minHeap.getMin()).toEqual(1);
+
+    minHeap.extractMin();
+    expect(minHeap.getMin()).toEqual(2);
+
+    minHeap.extractMin();
+    expect(minHeap.getMin()).toEqual(3);
+
+    minHeap.extractMin();
+    expect(minHeap.getMin()).toEqual(4);
+  });
+
   test('min binary heap', () => {
     const minHeap = new MinBinaryHeap();
     minHeap.insert(5);
@@ -44,17 +61,5 @@ describe('binary heap', () => {
 
     maxHeap.extractMax();
     expect(maxHeap.getMax()).toEqual(3);
-  });
-
-  test.each(sortingTestCases)(`$testType`, (testCase) => {
-    expect(heapSort([...testCase.unsorted], new MinBinaryHeap())).toEqual(
-      testCase.sorted,
-    );
-  });
-
-  test.each(sortingTestCases)(`$testType`, (testCase) => {
-    expect(heapSort([...testCase.unsorted], new MaxBinaryHeap())).toEqual(
-      [...testCase.sorted].reverse(),
-    );
   });
 });

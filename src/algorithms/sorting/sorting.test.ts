@@ -1,7 +1,12 @@
+import {
+  MaxBinaryHeap,
+  MinBinaryHeap,
+} from '../../data_structures/heap/binary_heap';
 import { compareReversedFn } from '../../lib/helpers/sorting';
 import bubbleSort from './bubble_sort/bubble_sort';
 import optimizedBubbleSort from './bubble_sort/optimized_bubble_sort';
 import recursiveBubbleSort from './bubble_sort/recursive_bubble_sort';
+import heapSort from './heap_sort/heap_sort';
 import insertionSort from './insertion_sort/insertion_sort';
 import recursiveInsertionSort from './insertion_sort/recursive_insertion_sort';
 import mergeSort from './merge_sort/merge_sort';
@@ -41,6 +46,20 @@ describe.each(
 )('$name with custom sort function', ({ fn }) => {
   test.each(sortingTestCases)(`$testType`, (testCase) => {
     expect(fn([...testCase.unsorted], compareReversedFn)).toEqual(
+      [...testCase.sorted].reverse(),
+    );
+  });
+});
+
+describe('heapSort', () => {
+  test.each(sortingTestCases)(`$testType`, (testCase) => {
+    expect(heapSort([...testCase.unsorted], new MinBinaryHeap())).toEqual(
+      testCase.sorted,
+    );
+  });
+
+  test.each(sortingTestCases)(`$testType`, (testCase) => {
+    expect(heapSort([...testCase.unsorted], new MaxBinaryHeap())).toEqual(
       [...testCase.sorted].reverse(),
     );
   });
