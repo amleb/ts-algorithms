@@ -52,13 +52,13 @@ describe.each(
 });
 
 describe('heapSort', () => {
-  test.each(sortingTestCases)(`$testType`, (testCase) => {
+  test.each(sortingTestCases)(`$testType (min)`, (testCase) => {
     expect(heapSort([...testCase.unsorted], new MinBinaryHeap())).toEqual(
       testCase.sorted,
     );
   });
 
-  test.each(sortingTestCases)(`$testType`, (testCase) => {
+  test.each(sortingTestCases)(`$testType (max)`, (testCase) => {
     expect(heapSort([...testCase.unsorted], new MaxBinaryHeap())).toEqual(
       [...testCase.sorted].reverse(),
     );
