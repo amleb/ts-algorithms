@@ -1,4 +1,11 @@
-const sortingTestCases = [
+export type SortingTestCase<T> = Readonly<{
+  unsorted: readonly T[];
+  sorted: readonly T[];
+  testType: string;
+  negativeNumbers?: boolean;
+}>;
+
+const sortingTestCases: ReadonlyArray<SortingTestCase<number>> = [
   { unsorted: [], sorted: [], testType: 'empty array' },
   { unsorted: [3], sorted: [3], testType: 'an array with one element' },
   { unsorted: [1, 2], sorted: [1, 2], testType: 'two sorted elements' },
@@ -27,6 +34,7 @@ const sortingTestCases = [
       11,
     ],
     testType: 'an array with even number of items',
+    negativeNumbers: true,
   },
   {
     unsorted: [
@@ -36,6 +44,7 @@ const sortingTestCases = [
       -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
     ],
     testType: 'an array with odd number of items',
+    negativeNumbers: true,
   },
   {
     unsorted: [1, 1, 1, 2, 2, 4, 4, 1, 2, 4],
@@ -47,6 +56,6 @@ const sortingTestCases = [
     sorted: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     testType: 'an array with identical elements',
   },
-] as const;
+];
 
 export default sortingTestCases;

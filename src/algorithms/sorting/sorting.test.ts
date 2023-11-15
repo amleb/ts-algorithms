@@ -16,6 +16,7 @@ import selectionSort from './selection_sort/selection_sort';
 import shellSort from './shell_sort/shell_sort';
 import sortingTestCases from './test_cases';
 
+//@todo split to separate tests for each algorithm
 const sortingAlgorithms = [
   selectionSort,
   doubleSelectionSort,
