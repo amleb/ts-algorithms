@@ -25,6 +25,13 @@ export class LinkedList<T> {
     currentNode.next = node;
   }
 
+  prepend(node: ListNode<T>) {
+    node.next = this.head;
+    this.head = node;
+
+    ++this.length;
+  }
+
   size() {
     return this.length;
   }
