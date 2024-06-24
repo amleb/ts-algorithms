@@ -32,6 +32,19 @@ export class LinkedList<T> {
     ++this.length;
   }
 
+  search(value: T) {
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.data === value) {
+        return true;
+      }
+
+      currentNode = currentNode.next;
+    }
+
+    return false;
+  }
+
   size() {
     return this.length;
   }
