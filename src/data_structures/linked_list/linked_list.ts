@@ -91,6 +91,28 @@ export class LinkedList<T> {
     return result.join(' -> ');
   }
 
+  reverse() {
+    if (!this.head || !this.head.next) {
+      return;
+    }
+
+    let prevNode = null;
+    let currentNode = this.head;
+    let nextNode = this.head.next;
+
+    while (nextNode.next) {
+      const tmp = nextNode.next;
+      nextNode.next = currentNode;
+      currentNode.next = prevNode;
+      prevNode = currentNode;
+      currentNode = nextNode;
+      nextNode = tmp;
+    }
+
+    nextNode.next = currentNode;
+    this.head = nextNode
+  }
+
   size() {
     return this.length;
   }

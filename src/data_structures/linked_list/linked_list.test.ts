@@ -64,4 +64,28 @@ describe('linked list', () => {
 
     expect(list.print()).toBe('1 -> 3');
   });
+
+  test('reverse an empty list', () => {
+    const list = createLinkedList([]);
+
+    list.reverse();
+
+    expect(list.print()).toBe('');
+  });
+
+  test('reverse a list with one element', () => {
+    const list = createLinkedList([1]);
+
+    list.reverse();
+
+    expect(list.print()).toBe('1');
+  });
+
+  test('reverse a list', () => {
+    const list = createLinkedList([1,2,3,4]);
+
+    list.reverse();
+
+    expect(list.print()).toBe('4 -> 3 -> 2 -> 1');
+  });
 });
