@@ -63,6 +63,10 @@ describe('linked list', () => {
     list.delete(1);
 
     expect(list.print()).toBe('1 -> 3');
+
+    list.delete(0);
+
+    expect(list.print()).toBe('3');
   });
 
   test('reverse an empty list', () => {
@@ -87,5 +91,29 @@ describe('linked list', () => {
     list.reverse();
 
     expect(list.print()).toBe('4 -> 3 -> 2 -> 1');
+  });
+
+  test('insert element at a specific position', () => {
+    const list = createLinkedList([1,2,3]);
+
+    list.insert(1, { data: 4 });
+
+    expect(list.print()).toBe('1 -> 4 -> 2 -> 3');
+  });
+
+  test('insert element at the first position', () => {
+    const list = createLinkedList([1,2,3]);
+
+    list.insert(0, { data: 4 });
+
+    expect(list.print()).toBe('4 -> 1 -> 2 -> 3');
+  });
+
+  test('insert element at the last position', () => {
+    const list = createLinkedList([1,2,3]);
+
+    list.insert(3, { data: 4 });
+
+    expect(list.print()).toBe('1 -> 2 -> 3 -> 4');
   });
 });

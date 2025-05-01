@@ -32,6 +32,37 @@ export class LinkedList<T> {
     ++this.length;
   }
 
+  insert(position: number, node: ListNode<T>) {
+    if (position < 0 || position > this.length) {
+      return;
+    }
+
+    if (position === 0) {
+      this.prepend(node);
+      return;
+    }
+
+    if (position === this.length) {
+      this.append(node);
+      return;
+    }
+
+    let currentNode = this.head;
+    let i = 0;
+
+    while (currentNode.next) {
+      if (i === position - 1) {
+        node.next = currentNode.next;
+        currentNode.next = node;
+        ++this.length;
+        break;
+      }
+
+      ++i;
+      currentNode = currentNode.next;
+    }
+  }
+
   search(value: T) {
     let currentNode = this.head;
     while (currentNode) {
